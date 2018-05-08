@@ -1,0 +1,67 @@
+
+
+  <mat-grid-list _ngheader cols="3" style="padding:10px">
+    <mat-grid-tile colspan="2" >
+        <div _hgheadercontent>
+            <h2 _ngheadertext>Trabaja con Nosotros</h2>
+            <div>
+              <p>Somos una Compañía divertida, apasionada e innovadora que siempre
+             busca enamorar y hacer sonreír a los niños a través de sus productos.
+             Estamos comprometidos con el medio ambiente y seguros de que el desarrollo
+            de talentos es fundamental para transformar y potenciar a a Compañía. 
+             Si quieres hacer parte de este sueño, aquí encontrarás las oportunidades
+             laborales que tenemos para ti. </p>
+            </div>
+            <button mat-raised-button>Ver Ofertas</button>
+        </div>
+    </mat-grid-tile>
+    
+</mat-grid-list>
+
+<h1 class="md-display-3">Convocatorias Abiertas</h1>
+
+
+<div class="container">
+    
+        <cdk-table mat-table #table [dataSource]="oportunidades" class="" role="grid">         
+          
+          <ng-container cdkColumnDef="Cargo">
+              <cdk-header-cell class="md-headline"  *cdkHeaderCellDef class="example-header-cell header-1"> OFERTA </cdk-header-cell>
+              <cdk-cell *cdkCellDef="let oportunidad" class="example-cell header-1"> {{oportunidad.Cargo}} </cdk-cell>
+          </ng-container>
+          
+            <ng-container cdkColumnDef="Ciudadsolicitud">
+                <cdk-header-cell *cdkHeaderCellDef class="example-header-cell header-2"> UBICACIÓN </cdk-header-cell>
+                <cdk-cell *cdkCellDef="let oportunidad" class="example-cell"> {{oportunidad.Ciudadsolicitud}} </cdk-cell>
+              </ng-container>
+
+              <ng-container cdkColumnDef="Fechafin">
+                  <cdk-header-cell *cdkHeaderCellDef class="example-header-cell header-3"> FECHA CIERRE </cdk-header-cell>
+                  <cdk-cell *cdkCellDef="let oportunidad" class="example-cell md-body-1"> {{oportunidad.Fechafin | date:'dd-MM-yyyy'}} </cdk-cell>
+                </ng-container> 
+          <cdk-header-row *cdkHeaderRowDef="displayedColumns" class="example-header-row"></cdk-header-row>
+          <cdk-row routerLink="/detail/{{oportunidad.Idrequisicion}}" *cdkRowDef="let oportunidad; columns: displayedColumns;" class="example-row"></cdk-row>
+        </cdk-table>
+      
+      
+  </div>
+  
+
+<!--<ul class="oportunidades">
+    <li *ngFor="let oportunidad of oportunidades">
+      <a routerLink="/detail/{{oportunidad.Idrequisicion}}">
+        <span class="badge">{{oportunidad.Idrequisicion}}</span>
+      </a>
+    </li>
+  </ul>
+<div *ngIf="selectedOportunidad">
+<h2>{{ selectedOportunidad.cargo | uppercase }} Details</h2>
+  <div><span>id: </span>{{selectedOportunidad.Idrequisicion}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="selectedOportunidad.cargo" placeholder="name">
+    </label>
+  </div>
+</div>-->
+
+<app-oportunidad-detail [oportunidad]="selectedOportunidad"></app-oportunidad-detail>

@@ -1,0 +1,21 @@
+body{
+    background-color: #212121;
+  }
+  h1{
+    text-align: center;
+  }
+  .second{
+    margin-top: -18px;
+  }
+  form{
+    background-color: #fff;
+    padding: 15px;
+  }
+  .material-icons{
+    color:darkblue;
+    text-align:middle;
+  }
+  .send{color:#fff;}
+  .btn {
+     padding:8px;
+  }

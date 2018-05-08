@@ -1,1 +1,73 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+body {
+    margin: 0;
+    font-family: Roboto, sans-serif;
+  }
+  
+  mat-card {
+    max-width: 80%;
+    margin: 2em auto;
+    text-align: center;
+  }
+  
+  mat-toolbar-row {
+    justify-content: space-between;
+  }
+  
+  .done {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    color: white;
+  }
+
+  .mat-toolbar {
+    background: rgba(0,0,0,.87);
+    color: rgba(0,0,0,.87);
+    }
+
+   [_ngheader] {
+        background-image: url('http://clientes.hermeco.com/Content/images/login.jpg');        
+        background-position: center center;
+        background-size: cover;
+   }
+
+   [_ngheadertext]
+   {
+    color: #fff;    
+    font-weight: 450;
+    line-height: 1.5;
+    margin: 0 auto;
+    overflow: hidden;
+    
+   }
+
+   [_hgheadercontent]
+   {     
+     background-color: rgba(0,0,0,.4);          
+     max-width: 70%;
+     padding-top: 1em;
+     padding-left: 1em;
+     padding-bottom: 1em;   
+     padding-right: 1em;  
+   }
+
+   [_hgheadercontent] p
+   {
+      color: #fff;    
+      font-weight: 100
+   }
+
+  
+
+   
+   
+   .container {
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+    /*max-height: 500px;*/
+    overflow: auto;
+    padding: 2em;
+  }
