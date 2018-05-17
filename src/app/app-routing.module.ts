@@ -9,10 +9,15 @@ const routes: Routes = [
   { path: 'oportunidades', component: OportunidadesComponent },
   { path: 'detail/:id', component: OportunidadDetailComponent },  
   { path: 'apply/:id', component:  AplicacionOportunidadComponent}, 
+  { path: '', redirectTo: '/oportunidades', pathMatch: 'full' },
 ];
 
 @NgModule({
   imports: [ RouterModule.forRoot(routes) ],
   exports: [ RouterModule ] 
 })
-export class AppRoutingModule { }
+export class AppRoutingModule { 
+
+  
+
+}

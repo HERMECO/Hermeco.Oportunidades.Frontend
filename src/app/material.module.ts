@@ -10,6 +10,7 @@ import {
     MatCheckboxModule,
     MatChipsModule,
     MatDatepickerModule,
+    MatDialog,
     MatDialogModule,
     MatDividerModule,
     MatExpansionModule,
@@ -54,6 +55,7 @@ import {
     MatExpansionModule,
     MatGridListModule,
     MatIconModule,
+    
     MatInputModule,
     MatListModule,
     MatMenuModule,
@@ -92,6 +94,7 @@ import {
     MatIconModule,
     MatInputModule,
     MatListModule,
+    
     MatMenuModule,
     MatNativeDateModule,
     MatPaginatorModule,

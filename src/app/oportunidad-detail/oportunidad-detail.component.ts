@@ -1,8 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { Oportunidad }         from '../oportunidad';
 import { OportunidadService }  from '../oportunidad.service';
+import { MAT_DIALOG_DATA, MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-oportunidad-detail',
@@ -15,7 +16,8 @@ export class OportunidadDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private oportunidadService: OportunidadService,
-    private location: Location
+    private location: Location, 
+    public dialog: MatDialog   
   ) {}
 
   ngOnInit(): void {
@@ -24,13 +26,17 @@ export class OportunidadDetailComponent implements OnInit {
 
   getOportunidad(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.oportunidadService.getOportunidad(id)
-      .subscribe(oportunidad => this.oportunidad = oportunidad);
+    if(id!=0)
+    {
+      this.oportunidadService.getOportunidad(id)
+        .subscribe(oportunidad => this.oportunidad = oportunidad);
+    }
   }
 
   goBack(): void {
     this.location.back();
   }
+
 }
 
 

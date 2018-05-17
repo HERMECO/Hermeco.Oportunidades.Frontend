@@ -65,6 +65,38 @@
   }
  
 
+  [_ngheader] {
+    background-image: url('../../img/rsz_offcorss_25658-2.jpg');
+    background-position: initial;
+    background-size: cover;
+}
+
+[_ngheadertext]
+{
+color: #fff;    
+font-weight: 450;
+line-height: 1.5;
+margin: 0 auto;
+overflow: hidden;
+
+}
+
+[_hgheadercontent]
+{     
+ background-color: rgba(0,0,0,.4);          
+ max-width: 70%;
+ padding-top: 1em;
+ padding-left: 1em;
+ padding-bottom: 1em;   
+ padding-right: 1em;  
+}
+
+[_hgheadercontent] p
+{
+  color: #fff;    
+  font-weight: 100
+}
+
 
   
   

@@ -1,44 +1,36 @@
 import { Injectable } from '@angular/core';
 import { Oportunidad } from './oportunidad';
+import { Aplicacion } from './aplicacion';
 import { OPORTUNIDADES } from './mock-oportunidades';
-import { Observable } from 'rxjs/Observable';
-import { of } from 'rxjs/observable/of';
+import { Observable } from 'rxjs';
+import { of } from 'rxjs';
 import { MessageService } from './message.service'
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Options } from 'selenium-webdriver/firefox';
 import { catchError, map, tap } from 'rxjs/operators';
 import { DataSource } from '@angular/cdk/table';
 
+
 @Injectable()
 export class OportunidadService {
-
-  private httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-  };
+  
+  private oportunidadesUrl;
 
    constructor(
     private http: HttpClient,
-    private messageService: MessageService) { }
+    private messageService: MessageService    ) { 
+      this.oportunidadesUrl = 'http://dllosvr:8084/api//Oportunidad'; 
+    }
   
   getOportunidades(): Observable<Oportunidad[]> {    
-    const headerDict = {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json',
-      'Access-Control-Allow-Headers': 'Content-Type',
-    }
-    
-    const requestOptions = {                                                                                                                                                                                 
-      headers: new Headers(headerDict), 
-    };
-    
-    
-    return this.http.get<Oportunidad[]>(this.oportunidadesUrl);
+      return this.http.get<Oportunidad[]>(this.oportunidadesUrl);
   }
   
 
   private log(message: string) {
     this.messageService.add('OportunidadService: ' + message);
   }
+
 
   getOportunidad(id: number): Observable<Oportunidad> {
     //this.messageService.add(`OportunidadService: fetched oportunidad id=${id}`);
@@ -49,10 +41,7 @@ export class OportunidadService {
       catchError(this.handleError<Oportunidad>(`getOportunidad id=${id}`))
     );
   }
-
-  private oportunidadesUrl = 'http://dllosvr:8084/api/Oportunidad';  // URL to web api
   
-
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
   

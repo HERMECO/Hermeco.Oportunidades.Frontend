@@ -1,44 +1,81 @@
-<div class="container">
-    <div class="row">
-       <form class="col l5 offset-l3 col s12 formulario validate">
-           <div class="row">
-             <div class="input-field col l9 offset-l1 s10 offset-s1">
-               <i class="material-icons prefix">account_circle</i>
-               <input  id="icon_prefix" type="text" class="validate" required="" aria-required="true">
-               <label for="icon_prefix" data-error="wrong" data-success="right">First Name</label>
-             </div>
+<div class="container" *ngIf="oportunidad && success==false">    
+    <div >        
+      <header>
+          <h1 class="md-display-2">{{oportunidad.Cargo}}</h1>      
+          <h4 class="mat-h2">{{oportunidad.Ciudadsolicitud}}</h4>
+      </header>
+      <div class="container component-body">
+          <mat-progress-spinner mode="indeterminate" class="spinner-margin" *ngIf="loading">
+            </mat-progress-spinner>
+            <form [formGroup]="form" >
+                <mat-form-field class="input-form" appearance="legacy">
+                    <mat-label>Nombre Completo</mat-label>
+                    <input matInput id="Name" formControlName="Name" required>
+                    <mat-icon matSuffix color="primary">account_circle</mat-icon>
+                    <mat-hint></mat-hint>
+                </mat-form-field>
+                <mat-form-field class="input-form" appearance="legacy">
+                  <mat-label>Correo Electrónico</mat-label>
+                    <input matInput type="Email" id="Email" formControlName="Email" required>
+                    <mat-icon matSuffix color="primary">mail</mat-icon>
+                    <mat-hint></mat-hint>
+                </mat-form-field>
+                <mat-form-field class="input-form" appearance="legacy">
+                  <mat-label>Número de Contacto</mat-label>
+                  <input matInput  id="Phone" formControlName="Phone" required>
+                  <mat-icon matSuffix color="primary">phone</mat-icon>
+                  <mat-hint>Fijo o Móvil</mat-hint>
+                </mat-form-field>
+                <div class="input-form" class="form-group">
+                  <mat-label>Currículum</mat-label>              
+                  <input #fileInput id="Curriculum"  accept=".doc, .docx, .pdf" required formControlName="Curriculum" type="file" (change)="handleFileInput($event.target.files)">                        
+                  <mat-hint>Archivos permitidos .doc, .docx, .pdf</mat-hint>
+                </div>   
+                <button type="submit" [disabled]="form.invalid || loading"  mat-raised-button (click)="onSubmit($event)" color="primary">
+                    Aplicar ahora
+                </button> 
+              </form>   
+                            
+      </div>  
+      <button mat-button color="primary" (click)="goBack()"><i class="material-icons">keyboard_arrow_left</i>Ver Oferta</button>      
+    </div>
+  </div>  
 
-             
-           <div class="row">
-            <div class="input-field col l9 offset-l1 s10 offset-s1">
-              <i class="material-icons prefix">email</i>
-              <input id="icon_prefix" type="email" class="validate" required="" aria-required="true">
-              <label for="icon_prefix" data-error="wrong" data-success="right">Email</label>
-            </div>
-         </div>
-         <div class="row second">
-          <div class="input-field col l9 offset-l1 s10 offset-s1">
-            <i class="material-icons prefix">dialpad</i>
-            <input id="icon_prefix" type="password" class="validate" length="8">
-            <label for="icon_prefix">Password</label>
+  <section *ngIf="success" class="component component-offset-top component-hero">
+
+        <mat-grid-list _ngheader cols="3" style="padding:10px">
+                <mat-grid-tile colspan="2" >
+                    <div _hgheadercontent>
+                        <h2 class="md-display-2" _ngheadertext>Aplicación enviada</h2>
+                        <div>
+                            <p>Hemos recibido tu información y nos pondrémos en contacto contigo una vez la estudiemos.</p>                        
+                        </div>
+                        <a mat-button color="primary" href="/oportunidades"><i class="material-icons">keyboard_arrow_left</i>Volver a Ofertas</a>                                           
+                    </div>
+                </mat-grid-tile>
+                
+            </mat-grid-list>
+      <!--<div class="component-hero--background">
+          <div class="background-image-img visible-md visible-lg">
+              <div style="background-image: url('http://clientes.hermeco.com/Content/images/login.jpg');"></div>
           </div>
-          
-       </div>
-           <div class="row second">
-            <div class="input-field col l9 offset-l1 s10 offset-s1 ">
-              <i class="material-icons prefix">assignment_ind</i>
-              <input id="icon_prefix" type="text" class="datepicker">
-            </div>
-         </div>
-         <div class="row">
-           <div class="input-field col s10 offset-s1">
-             <button class="btn red waves-effect waves-light right" type="submit" name="action" style="padding:8px;line-height:20px;">Submit
-               <i class="material-icons right send">send</i>
-             </button>
-           </div>
-         </div>
-
-           </div>
-
-     </form>
-</div>
+      </div>
+  
+      <div class="component-hero--content ">
+          <div class="container">
+              <div class="row">
+  
+                  <div class="jumbotron popover-wrapper">
+                      <div class="col-xs-12 text-center">
+                          <h1>Aplicación enviada</h1>
+                         
+                      </div>
+                      <a href="#" class="pull-right"><span class="glyphicon glyphicon-envelope"></span>Volver</a>
+                  </div>
+              </div>
+          </div>
+  
+      </div>-->
+  
+  </section>
+  

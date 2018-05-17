@@ -1,21 +1,35 @@
-body{
-    background-color: #212121;
+
+
+  .container-form {
+    display: flex;
+    flex-direction: column;
   }
-  h1{
-    text-align: center;
+  
+  .container-form > * {
+    width: 60%;
   }
-  .second{
-    margin-top: -18px;
+
+  .input-form
+  {
+    width: 60%;
+    box-shadow: white;
+    -webkit-box-shadow: 0 0 0 30px white inset;
+    padding-bottom: 1em;
   }
-  form{
-    background-color: #fff;
-    padding: 15px;
-  }
-  .material-icons{
-    color:darkblue;
-    text-align:middle;
-  }
-  .send{color:#fff;}
-  .btn {
-     padding:8px;
-  }
+button{
+  margin-top:1em;
+}
+
+.spinner-margin{
+  position: absolute;
+  align-self: center;
+  margin-top: 15%;
+  z-index: 100;
+}
+
+[_ngheader] {
+  background-image: url('../../img/rsz_offcorss_25658-2.jpg');
+  background-position: initial;
+  background-size: cover;
+}
+ 

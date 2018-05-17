@@ -4,9 +4,9 @@
         <h1 class="md-display-2">{{oportunidad.Cargo}}</h1>      
     </header>
     <div class="container component-body">
-        <h3><span>Funciones</span></h3>
+        <h3 class="md-headline"><span>Funciones</span></h3>
         <span>{{oportunidad.Funciones}}</span>      
-        <h3 class="md-display"><span>Requisitos</span></h3>        
+        <h3 class="md-headline"><span>Requisitos</span></h3>        
         <ul>
             <li><span>Profesión: {{oportunidad.Profesion}}</span></li>
             <li><span>Formación: {{oportunidad.Formacion}}</span></li>
@@ -16,24 +16,12 @@
             <li><span>Fecha de cierre: {{oportunidad.Fechafin | date:'dd/MM/yyyy'}}</span></li>
         </ul>
         <div layout="row" layout-wrap >
-            <button mat-raised-button color="accent" routerLink="/apply/{{oportunidad.Idrequisicion}}">
+            <button mat-raised-button color="primary" routerLink="/apply/{{oportunidad.Idrequisicion}}">
               Aplicar ahora
             </button>                    
           </div>
                                     
     </div>  
-    
-    
-    <button mat-raised-button  (click)="goBack()"><i class="material-icons">keyboard_arrow_left</i>Ver Oportunidades</button>
+    <button mat-button color="primary" (click)="goBack()"><i class="material-icons">keyboard_arrow_left</i>Ver Oportunidades</button>      
   </div>
-</div>
-  
-
-
-
-
-
-<section>
-
-</section>
-  
+</div>  
