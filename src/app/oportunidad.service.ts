@@ -19,11 +19,11 @@ export class OportunidadService {
    constructor(
     private http: HttpClient,
     private messageService: MessageService    ) { 
-      this.oportunidadesUrl = 'http://dllosvr:8084/api//Oportunidad'; 
+      this.oportunidadesUrl = 'http://apioportunidades.hermeco.com/api/'; 
     }
   
   getOportunidades(): Observable<Oportunidad[]> {    
-      return this.http.get<Oportunidad[]>(this.oportunidadesUrl);
+      return this.http.get<Oportunidad[]>(this.oportunidadesUrl+'oportunidad');
   }
   
 
@@ -35,7 +35,7 @@ export class OportunidadService {
   getOportunidad(id: number): Observable<Oportunidad> {
     //this.messageService.add(`OportunidadService: fetched oportunidad id=${id}`);
     //return of(OPORTUNIDADES.find( oportunidad => oportunidad.Idrequisicion === id));
-    const url = `${this.oportunidadesUrl}/${id}`;
+    const url = `${this.oportunidadesUrl}Oportunidad/${id}`;
     return this.http.get<Oportunidad>(url).pipe(
       tap(_ => this.log(`fetched oportunidad id=${id}`)),
       catchError(this.handleError<Oportunidad>(`getOportunidad id=${id}`))

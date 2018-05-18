@@ -37,7 +37,7 @@
               </form>   
                             
       </div>  
-      <button mat-button color="primary" (click)="goBack()"><i class="material-icons">keyboard_arrow_left</i>Ver Oferta</button>      
+      <button mat-button color="primary" [disabled]="loading"  (click)="goBack()"><i class="material-icons">keyboard_arrow_left</i>Ver Oferta</button>      
     </div>
   </div>  
 
@@ -55,27 +55,7 @@
                 </mat-grid-tile>
                 
             </mat-grid-list>
-      <!--<div class="component-hero--background">
-          <div class="background-image-img visible-md visible-lg">
-              <div style="background-image: url('http://clientes.hermeco.com/Content/images/login.jpg');"></div>
-          </div>
-      </div>
-  
-      <div class="component-hero--content ">
-          <div class="container">
-              <div class="row">
-  
-                  <div class="jumbotron popover-wrapper">
-                      <div class="col-xs-12 text-center">
-                          <h1>Aplicación enviada</h1>
-                         
-                      </div>
-                      <a href="#" class="pull-right"><span class="glyphicon glyphicon-envelope"></span>Volver</a>
-                  </div>
-              </div>
-          </div>
-  
-      </div>-->
+
   
   </section>
   

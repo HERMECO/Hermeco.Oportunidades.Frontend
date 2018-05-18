@@ -41,7 +41,7 @@ export class AplicacionOportunidadComponent implements OnInit{
     private router: Router
       ) {
     this.createForm();   
-    this.apiURL="http://dllosvr:8084/api/" ;    
+    this.apiURL="http://apioportunidades.hermeco.com/api/" ;    
   }
 
   createForm() {
